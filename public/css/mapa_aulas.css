@@ -1,0 +1,32 @@
+.titulo-pagina{
+  font-family: 'Narkisim';
+  text-align: center;
+  position: relative;
+  top: 23px;
+  font-size: 2em;
+}
+
+.featurette-divider{
+  margin: 0% 5% 0% 5%;
+  position: relative;
+  top: 22.5px;
+}
+
+iframe{
+  position: relative;
+  top: 50px;
+  margin: 0% 5% 0% 5%;
+  width: "600";
+  height: "450";
+  frameborder: "0" 
+  style: "border:0" allowfullscreen;
+        height: 550px;
+        width: 89%;
+}
+
+#mapa{
+  margin: 0% 5% 0% 5%;
+  position: relative;
+  top:; 50px;
+}
+

@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>Control Ayudantías-Archivos</title>
+
+    <% include ../include/librerias %>
+
+    <!-- Bootstrap -->
+    <link href="/css/archivos.css" rel="stylesheet">
+    <link href="/css/estilo.general1.css" rel="stylesheet">
+
+    <!-- Ícono en la pestaña de la página -->
+    <link rel="shortcut icon" href="/img/icono.png">
+
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet"/>
+
+    <!-- Menu vertical de la pestaña de la página -->
+    <link rel="stylesheet" type="text/css" href="/css/component.css">
+    <script src="/js/modernizr.custom.js"></script>
+  
+    <style>
+      .dataTable td { word-break: break-all; }
+    </style>    
+
+  </head>
+
+  <body ng-app="myApp" ng-controller="archivosAdminCtrl" ng-init="init()">
+
+    <% include ../include/encabezado %>
+    <!--Encabezado -->
+
+    <% include ../include/menu-vertical %>
+    <!-- Menu propio del ayudante-->
+
+    <div  id="body1" class="">
+
+      <h2 class="titulo-pagina">ARCHIVAR CLASES</h2>
+
+
+      <hr class="featurette-divider">
+
+      <div class="row featurette">
+
+
+      <div class="row">
+        <div class="col-md-12" style="padding:0px;">
+          <div class="col-md-1" style="padding:0px;"></div>
+          <div class="col-md-10" style="padding:0px;">
+
+            <span id="tipoUsuario" class="hidden hide"><%= tipoUsuario %></span>
+
+            <h3 ng-if="tipoUsuario=='admin'">Tabla de contenidos</h3>
+
+            <div ng-if="tipoUsuario=='admin'" class="col-md-12 text-center">
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModalNorm" ng-click="alertNuevo()">
+                <i class="glyphicon glyphicon-plus"></i>
+                Añadir recurso
+              </button>
+            </div>
+
+            <!-- Modal nuevo recurso -->
+            <div class="modal fade" id="myModalNorm" tabindex="-1" role="dialog" 
+                 aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <form id="nuevoRecursoForm" role="form" name="newRec">
+                          <!-- Modal Header -->
+                          <div class="modal-header bg-primary">
+                            <h4 class="modal-title" id="myModalLabel"> Nuevo recurso </h4>
+                          </div>
+                          <!-- Modal Body -->
+                          <div class="modal-body">
+                              <div class="form-group">
+                                <label for="Categoria">Materia*</label>
+                                <input type="text" class="form-control" id="Materia" placeholder="Ingrese una materia" ng-model="recurso.materia" maxlength="20"/>
+                              </div>
+
+                              <div class="form-group">
+                                <label for="Descripcion">Descripcion*</label>
+                                <input type="text" class="form-control" id="Descripcion" placeholder="Ingrese una breve descripcion" ng-model="recurso.descripcion" maxlength="150"/>
+                              </div>
+
+                              <div class="form-group">
+                                <label for="Link">Link*</label>
+                                  <input type="text" class="form-control" id="Link" placeholder="Ingrese un enlace" ng-model="recurso.link" maxlength="50"/>
+                              </div>
+
+                              <div class="form-check">
+                                <label class="form-check-label">
+                                  <input type="checkbox" class="form-check-input" ng-model="recurso.forUsers">
+                                  Disponible para ayudantes
+                                </label>
+                              </div>
+
+                              <div class="form-group">
+                                <div class="text-center" style="width:50%; margin: 0% auto;">
+                                  <h2>Foto*</h2>
+                                  <img id="preview" class="avatar img-thumbnail" ng-src="{{recurso.foto}}"/>
+                                  <div id="span" style="color: #000">Vista previa</div>
+                                  <input id="image_file" name="foto" class="text-center center-block well well-sm" onchange="angular.element(this).scope().selectFile()" type="file" ng-model="recurso.foto" valid-file required>
+                                </div>
+                              </div>
+                          </div>
+                          <!-- Modal Footer -->
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" ng-click="guardar()" data-dismiss="modal">Guardar</button> 
+                            <button type="button" class="btn btn-default" ng-click="initRecurso()" data-dismiss="modal">Cerrar</button>
+                          </div>
+                        </form>
+                        
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal vista previa recurso -->
+            <div class="modal fade" id="myModalView" tabindex="-1" role="dialog" 
+                 aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <!-- Modal Header -->
+                        <div class="modal-header bg-primary">
+                          <h4 class="modal-title"> Vista previa </h4>
+                        </div>
+                        <!-- Modal Body -->
+                        <div class="modal-body">
+
+                          <!--<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12"> -->
+                            <div class="card" style="width:70%;padding:1%; margin:1% auto;" >
+                              <div class="card-header">
+                                Recurso {{$index + 1}}
+                              </div>
+                              <img class="card-img-top featurette-image img-responsive" ng-src="{{recursoS.foto}}" alt="Imagen genérica" style="margin-bottom:5%">
+                              <div class="card-block">
+                                {{ recursoS.fecha | date:"MMM d, y 'a las' h:mm a" }}
+                              </div>
+                              <div class="card-block" style="word-wrap: break-word;">
+                                <h4 class="card-title" ng-bind="recursoS.materia"></h4>
+                                <p class="card-text">
+                                  {{recursoS.descripcion}}
+                                </p>
+                              </div>
+                              <div class="card-block">
+                                <a ng-click="nuevaVentana(recurso.link)">Ir al recurso</a>
+                              </div>
+                            </div>
+                          <!--</div> -->
+
+                        </div>
+
+                        <!-- Modal Footer -->
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-default" ng-click="initRecursoS()" data-dismiss="modal">Cerrar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <table ng-if="tipoUsuario=='admin'" datatable="ng" class="table table-striped">
+                <thead>
+                  <!-- <th>#</th> -->
+                  <th style="width:20%">Materia</th>
+                  <th style="width:35%">Link</th>
+                  <th style="width:20%">Fecha</th>
+                  <th style="width:10%;">¿Ayudantes?</th>
+                  <th style="width:15%">Acciones</th>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="recurso in recursos">
+                      <!--<td>{{$index + 1}}</td>-->
+
+                      <td ng-bind="recurso.materia"></td>
+
+                      <td ng-bind="recurso.link"></td>
+
+                      <td> {{ recurso.fecha | date:"MMM d, y 'a las' h:mm a" }} </td>
+
+                      <td class="text-center">
+                        <span ng-if="recurso.forUsers">Sí</span>
+                        <span ng-if="!recurso.forUsers">No</span>
+                      </td>
+
+                      <td>
+                        &nbsp;
+                        <a title="Vista previa" ng-click="llenarRecursoS(recurso)">
+                          <i class="fa fa-lg fa-eye" aria-hidden="true" style="color:blue"></i>
+                        </a>
+                        &nbsp;
+                        <a title="Editar" ng-click="llenarModal(recurso)">
+                          <i class="fa fa-lg fa-pencil-square-o" aria-hidden="true" style="color:green"></i>
+                        </a>
+                        &nbsp;
+                        <a title="Eliminar" ng-click="confirmarEliminar(recurso)">
+                          <i class="fa fa-lg fa-trash" aria-hidden="true" style="color:red"></i>
+                        </a>
+                      </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div ng-if="tipoUsuario!='admin'">
+              <div class="card" style="width:33%; border: 0px solid #000; border-radius:15px; padding:2%; margin-top:2%; margin-left:0%; margin-right:0%; float:left; height:50%;" ng-repeat="recurso in recursosD">
+                <div class="card-header">
+                  Recurso {{$index + 1}}
+                </div>
+                <img class="card-img-top featurette-image img-responsive" ng-src="{{recurso.foto}}" alt="Imagen genérica" style="margin-bottom:5%; height:150px;">
+                <div class="card-block">
+                  {{ recurso.fecha | date:"MMM d, y 'a las' h:mm a" }}
+                </div>
+                <div class="card-block" style="word-wrap: break-word;">
+                  <h4 class="card-title" ng-bind="recurso.materia"></h4>
+                  <p class="card-text">
+                    {{recurso.descripcion}}
+                  </p>
+                </div>
+                <div class="card-block">
+                  <a ng-click="nuevaVentana(recurso.link)">Ir al recurso</a>
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <div class="col-md-1" style="padding:0px;"></div>
+        </div>
+      </div>
+
+
+      </div>
+
+        <br>
+
+      <!--
+      <div class="row featurette">
+        <div class="col-md-7 col-md-push-5">
+          <h2 class="featurette-heading">Cálculo de Varias Variables <br /> <br /><span class="text-muted">Ejercicios</span></h2>
+        </div>
+        <div class="col-md-5 col-md-pull-7">
+          <img class="featurette-image img-responsive center-block" src="/img/cvv.jpg" alt="Generic placeholder image" width="150" height="100">
+        </div>
+      </div>
+      -->
+
+
+    </div>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    
+    <footer>
+      <a href="https://www.facebook.com/bryandariot"><i class="fa fa-facebook"></i></a>
+      <a href="https://twitter.com/elisanvil"><i class="fa fa-twitter"></i></a>
+      <a href="https://www.linkedin.com/in/elisavil"><i class="fa fa-linkedin"></i></a>
+      <!--<a href="#"><i class="fa fa-instagram"></i></a>-->
+    <br />
+      <small>©2017 por B. Tumbaco, N. Colcha, A. Vintimilla y E. Sánchez</small>
+    </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+  </body>
+</html>

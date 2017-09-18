@@ -1,0 +1,27 @@
+.titulo-pagina{
+	font-family: 'Narkisim';
+	text-align: center;
+	position: relative;
+	top: 23px;
+	font-size: 2em;
+	font-weight: bold;
+}
+
+.featurette-divider{
+	margin: 0% 5% 0% 5%;
+	position: relative;
+	top: 22.5px;
+}
+
+
+
+.table-responsive{
+	width: 95%;
+	position: relative;
+	top: 50px;
+	/*left: 20%;*/
+	border: 3px groove hsla(209,48%,74%,1);
+}
+
+
+

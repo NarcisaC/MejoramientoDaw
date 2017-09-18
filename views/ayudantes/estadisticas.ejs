@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Control Ayudantías-Estadísticas</title>
+
+    <% include ../include/librerias %>
+
+    <link href="/css/estilo.general1.css" rel="stylesheet">
+
+    <link rel="shortcut icon" href="/img/icono.png">
+    
+    <!-- Bootstrap Core CSS -->
+    <!--<link href="/css/bootstrap_estadisticas.css" rel="stylesheet">-->
+
+    <!-- MetisMenu CSS -->
+    <link href="/css/metisMenu.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="/css/sb-admin-2.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <!--<link href="/css/font-awesome.min.css" rel="stylesheet" type="text/css">-->
+    <link href="/css/estadisticas.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet"/>
+
+</head>
+
+<body>
+
+    <% include ../include/encabezado %>
+    <!--Encabezado -->
+
+    <h2 class="titulo-pagina">Estadísticas de Visita</h2>
+    <span class="hidden" id="showInit">false</span>
+
+    <hr class="featurette-divider">
+          
+    <!-- /.row -->
+    <div class="col-lg-12" style="padding-top:5%; padding-bottom:10%" ng-app="estApp" ng-controller="estadisticasCtrl" ng-init="init()">
+      <div class="col-lg-1"></div>
+      <div class="col-lg-10">
+
+        <div class="col-lg-6">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <i class="fa fa-bar-chart-o fa-fw"></i> Estadisticas de usuarios totales
+              <div class="pull-right"></div>
+            </div>
+            <div class="panel-body">
+              <nvd3 options="options1" data="data1"></nvd3>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <i class="fa fa-bar-chart-o fa-fw"></i> Estadisticas de materias y recursos
+              <div class="pull-right"></div>
+            </div>
+            <div class="panel-body">
+              <nvd3 options="options2" data="data2"></nvd3>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-12">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <i class="fa fa-bar-chart-o fa-fw"></i> Estadisticas de ejercicios por mes
+              <div class="pull-right"></div>
+            </div>
+            <div class="panel-body">
+              <nvd3 options="options3" data="data3"></nvd3>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="col-lg-1"></div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/ayudantes.min.js"></script>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+
+
+    <footer>
+      <a href="https://www.facebook.com/bryandariot"><i class="fa fa-facebook"></i></a>
+      <a href="https://twitter.com/elisanvil"><i class="fa fa-twitter"></i></a>
+      <a href="https://www.linkedin.com/in/elisavil"><i class="fa fa-linkedin"></i></a>
+      <!--<a href="#"><i class="fa fa-instagram"></i></a>-->
+    <br />
+      <small>©2017 por B. Tumbaco, N. Colcha, A. Vintimilla y E. Sánchez</small>
+    </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>

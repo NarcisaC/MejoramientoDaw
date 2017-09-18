@@ -1,0 +1,51 @@
+form.botonera{
+	margin-top: 5%;
+	margin-right: 0px;
+	position: relative;
+	float: left;
+	left: 0%;
+	width: 10%;
+}
+
+.botonera li{
+	margin-bottom: 10%;
+}
+
+li input:hover{
+	width: 250px;
+}
+
+div#menu{
+	width: 50%;
+	position: relative;
+}
+
+div#menu ul  li{
+	margin-top:0px;
+	margin-bottom: 45px;
+	font-family: "Narkisim";
+	font-size: 1.5em;
+	background-color: rgba(0,28,67,1);;
+	width: 185px;
+	padding-top:10px;
+	padding-bottom: 10px;
+	border-radius:0px 20px 20px 0px;
+	border-bottom: 10px solid rgba(0,128,192,0.25); 
+	border-left: 10px solid transparent; 
+	height: 100px; 
+	width:200px;
+	padding-left: 20px;
+	box-shadow: 5px 0px 11px rgba(147,147,147,.75);
+	-webkit-transition:padding-left 0.9s;
+	height:65px;
+}
+
+div#menu-lateral  ul  li:hover{
+	padding-left: 50px;
+	width: 225px;
+}
+
+a{
+	font-style: none;
+	color: rgba(253,254,254,1);
+}

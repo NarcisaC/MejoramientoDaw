@@ -1,0 +1,193 @@
+/*LO QUE VA SOBRE EL CAROUSEL*/
+li{
+	list-style: none;
+}
+
+.bienvenida h2 {
+  font-family: 'Narkisim';
+  text-align: center;
+  color: rgba(0,28,67,1);
+  margin-top: 10px;
+  font-weight: bold;
+  font-size: 2em;
+}
+
+.item .container {
+    width: 100%;
+  }
+
+.descripcion{
+  font-size: 2em;
+  font-family: 'Narkisim';
+  text-align: center;
+  color: rgba(0,28,67,1);
+  font-weight: bold;
+  text-shadow: 2px 0px rgba(0,28,67,.4);
+  margin-top: 1%;
+}
+
+/* CUSTOMIZE THE CAROUSEL
+-------------------------------------------------- */
+
+/* Carousel base clas<s */
+.carousel {
+  /*top: 10px;*/
+  margin-bottom: 100px;
+  /*padding-top: 30px;*/
+  box-shadow: 0px 10px rgba(0,28,67,1);
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  
+}
+/* Since positioning the image, we need to help out the caption */
+.carousel-caption {
+  z-index: 10;
+}
+
+/* Declare heights because of positioning of img element */
+/*.carousel .item {
+  height: 340px;
+}*/
+.carousel-inner > .item > img {
+  height: 45vh!important;
+}
+
+h1.descripcion {
+  text-align: center;
+}
+
+
+
+
+#myCarousel{
+  width: 80vw;
+  margin-top: 1%;
+}
+
+.fill {
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+}
+
+.carousel,
+.item,
+.active {
+    height: 80%;
+}
+
+.carousel-inner {
+    height: 80%;
+}
+
+#item1 {
+  background-image: url("https://github.com/NarcisaC/DAW/blob/bryan/img/explosion.png");
+}
+
+#item2 {
+  background-image: url('https://github.com/NarcisaC/DAW/blob/bryan/img/visto.png');
+}
+
+#item3 {
+  background-image: url("https://github.com/NarcisaC/DAW/blob/bryan/img/rayo.png");
+}
+
+ol.carousel-indicators li div{
+    border-radius: 50%;
+    background: rgba(0,0,0,0.8);
+}
+
+ol.carousel-indicators li.active div{
+    border-radius: 50%;
+    background: rgba(255,255,255,0.8);
+}
+
+ol.carousel-indicators li{
+    width: 50px;
+    height: 50px;
+    border-color: transparent;
+}
+
+ol.carousel-indicators {
+  bottom: 50px;
+}
+
+ol.carousel-indicators li.active{
+    width: 50px;
+    height: 50px;
+    border-color: transparent;
+    background-color: transparent;
+}
+
+
+
+
+@media screen and (max-width: 920px) {
+  .descripcion{
+    font-size: 1.8em;
+    
+  }
+
+  .carousel-inner > .item > img {
+    height: 40vh!important;
+  }
+
+  ol.carousel-indicators {
+    bottom: 35px;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .descripcion, .bienvenida h2 {
+    font-size: 1.4em;
+  }
+
+  ol.carousel-indicators li {
+    width: 35px;
+    height: 35px;
+  }
+
+  ol.carousel-indicators li.active {
+    width: 35px;
+    height: 35px;
+  }
+
+  .item .container {
+    position: absolute;
+    bottom: 80%;
+    width: 100%;
+  }
+
+  .carousel-indicators {
+    bottom: 0px!important;
+  }
+
+  ol.carousel-indicators li {
+    width: 25px;
+    height: 25px;
+  }
+
+  ol.carousel-indicators li.active {
+    width: 25px;
+    height: 25px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+
+  .descripcion {
+    font-size: .9em;
+  }
+
+  .carousel-inner > .item > img {
+    height: 30vh!important;
+  }
+
+   
+}
+

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>Control Ayudantías-Foro Docentes</title>
+    
+    <% include ../include/librerias %>
+    
+    <!-- Bootstrap -->
+    <link href="/css/foro_docentes.css" rel="stylesheet">
+    <link href="/css/estilos-menu-lateral.css" rel="stylesheet">
+    <link href="/css/estilo.general1.css" rel="stylesheet">
+
+    <!-- Ícono en la pestaña de la página -->
+    <link rel="shortcut icon" href="/img/icono.png">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet"/>
+
+    <link rel="shortcut icon" href="/../favicon.ico">
+    <!--<link rel="stylesheet" type="text/css" href="css/normalize.css">-->
+    <!--<link rel="stylesheet" type="text/css" href="css/demo.css">-->
+    <link rel="stylesheet" type="text/css" href="/css/component.css">
+    <script src="/js/modernizr.custom.js"></script>
+
+
+  </head>
+  <body ng-app="myApp" ng-controller="foroDocentesCtrl" ng-init="init()">
+    
+    <% include ../include/encabezado %>
+    <!--Encabezado -->
+
+    <% include ../include/menu-vertical %>
+    <!-- Menu propio del ayudante-->
+
+    <div  id="body1" class="">
+      <h2 class="titulo-pagina">Foros de docentes</h2>
+      <hr class="featurette-divider">
+
+      <div class="col-md-10" style="margin-top:6%;">
+        <div class="" style="width: 100%">
+          <div id="centro" class="row">
+            <div id="menu" class="col-md-6">
+              <ul>
+                <li><a class="Foros" href="/user/foro/estudiantes">Estudiantes</a></li>
+                <li><a class="Foros" href="/user/foro/docentes">Docentes</a></li>
+                <li><a class="Foros" href="/user/foro/ayudantes">Ayudantes</a></li>
+              </ul>
+
+              <span id="tipoUsuario" class="hidden hide"><%= tipoUsuario %></span>
+
+            </div>
+            <div class="col-md-6">
+
+            <!-- Modal nuevo foro -->
+            <div class="modal fade" id="myModalNorm" tabindex="-1" role="dialog" 
+                 aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <form role="form" name="newForoEst">
+                          <!-- Modal Header -->
+                          <div class="modal-header bg-primary">
+                            <h4 class="modal-title" id="myModalLabel"> Nuevo foro </h4>
+                          </div>
+                          <!-- Modal Body -->
+                          <div class="modal-body">
+                              <div class="form-group">
+                                <label for="Categoria">Categoria</label>
+                                <select class="form-control" id="Categoria" placeholder="Ingrese Categoria" ng-model="foro.categoria" required>
+                                  <option value="Docentes">Docentes</option>
+                                </select>
+                              </div>
+
+                              <div class="form-group">
+                                <label for="Titulo">Titulo (Quedan <span ng-bind="dispTitulo"></span> caracteres disponibles)</label>
+                                  <input type="text" class="form-control" id="Titulo" placeholder="Ingrese titulo" ng-model="foro.titulo" maxlength="{{maximoTitulo}}" ng-keypress="restanteTitulo()" ng-keyup="restanteTitulo()"/>
+                              </div>
+
+                              <div class="form-group">
+                                <label for="Contenido">Contenido (Quedan <span ng-bind="dispCont"></span> caracteres disponibles)</label>
+                                <textarea class="form-control" rows="5" id="Contenido" placeholder="Ingrese el contenido" ng-model="foro.contenido" maxlength="{{maximoContenido}}" ng-keypress="restanteContenido()" ng-keyup="restanteContenido()" ></textarea>
+                              </div>
+                          </div>
+                          <!-- Modal Footer -->
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" ng-click="guardarForo()" data-dismiss="modal">Guardar</button> 
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                          </div>
+                        </form>
+                        
+                    </div>
+                </div>
+            </div>
+
+            <div ng-if="tipoUsuario=='admin'" class="col-md-12 text-center" style="margin:0% auto 3% auto;">
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModalNorm" ng-click="alertNuevoForo()">
+                <i class="glyphicon glyphicon-plus"></i>
+                Crear foro
+              </button>
+            </div>
+
+            <div ng-if="ready==true && forosDoc.length<1" class="col-md-12">
+              <h4> No hay foros disponibles </h4>
+            </div>
+
+            <!-- Lista de foros  ng-bind-html-unsafe="foro.text"-->
+            <div ng-if="ready==true && forosDoc.length>0" class="col-md-12">
+              <div class="list-group">
+                <div class="list-group-item list-group-item-action" ng-repeat="foro in forosDoc">
+                    <a href="/user/foro/conversacion/{{foro._id}}">
+                      <span ng-if="foro.titulo"> {{foro.titulo}} </span>
+                    </a>
+                    <span ng-if="(foro && tipoUsuario=='admin')" class="badge" ng-click="llenarModal(foro)">
+                      <i class="glyphicon glyphicon-pencil" style="font-size:0.8em"></i>  
+                    </span>
+                    <span ng-if="(foro && tipoUsuario=='admin')" class="badge" ng-click="confirmarEliminar(foro)">
+                      <i class="glyphicon glyphicon-trash" style="font-size:0.8em"></i>
+                    </span>
+                    <span ng-if="foro.comentarios" class="badge" ng-bind="foro.comentarios.length"></span>
+                </div>
+              </div>
+            </div>
+
+            </div>
+          </div>
+        </div>  
+      </div>    
+
+      <br />
+      <br />
+      <br />
+    </div>
+
+    <footer>
+      <a href="https://www.facebook.com/bryandariot"><i class="fa fa-facebook"></i></a>
+      <a href="https://twitter.com/elisanvil"><i class="fa fa-twitter"></i></a>
+      <a href="https://www.linkedin.com/in/elisavil"><i class="fa fa-linkedin"></i></a>
+      <!--<a href="#"><i class="fa fa-instagram"></i></a>-->
+    <br />
+      <small>©2017 por B. Tumbaco, N. Colcha, A. Vintimilla y E. Sánchez</small>
+    </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+
+    <!--Propio del Menu lateral-->
+    <script src="/js/classie.js"></script>
+    <script src="/js/gnmenu.js"></script>
+    <script>
+        new gnMenu( document.getElementById( 'gn-menu' ) );
+    </script>
+    
+  </body>
+</html>

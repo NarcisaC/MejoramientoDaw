@@ -1,0 +1,40 @@
+<div id="encabezado">
+  <header>   
+    <div class="container">
+      <div class="jumbotron">
+        <div class="head" id="primero">
+          <img class="logo" src="/img/logo-ayudantes1.png" alt="logo" width="100" height="80">
+        </div>
+        <div class="head" id="segundo">
+          <h1 class="tit">CONTROL DE AYUDANTÍAS</h1>
+        </div>  
+      </div>  
+    </div> <!-- /container -->
+
+    <div class="container_menu" ng-controller="headerCtrl" ng-init="init()">
+        <ul ng-if="showInit" class="menu1">
+          <li id="izquierda"><a href="/ayudantes/login">Iniciar sesión</a></li>
+        </ul>
+        <ul ng-else class="menu1">
+          <li id="izquierda"><a href="/ayudantes/login">Perfil</a></li>
+        </ul>        
+        
+    </div><!--/.nav-collapse -->
+  
+  
+  <div class="top_menu">
+    <ul class="top_ul">
+      <li><a href="/ayudantes/">ayudantes.net</a></li>
+      <li>|</li>
+      <li><a href="/ayudantes/nosotros">Nosotros</a></li>
+      <li>|</li>
+      <li><a href="/ayudantes/contactos">Contáctanos</a></li>
+      <li>|</li>
+      <li><a href="/ayudantes/mapa">Mapa</a></li>
+      <li>|</li>
+      <li><a href="/ayudantes/estadisticas">Estadísticas</a></li>
+    </ul>
+  </div> 
+  
+  </header>
+</div>

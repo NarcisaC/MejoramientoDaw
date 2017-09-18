@@ -1,0 +1,42 @@
+<div class="menu-vertical">
+        <ul id="gn-menu" class="gn-menu-main" ng-controller="PerfilUsuarioCtrl">
+            <li class="gn-trigger">
+                <a class="gn-icon gn-icon-menu gn-selected"><span>Menu</span></a>
+                <nav class="gn-menu-wrapper gn-open-all"> <!--gn-open-all No estaba antes de cambiar gnmenu.js-->
+                    <div class="gn-scroller">
+                        <ul class="gn-menu">
+                            <!--<li class="gn-search-item">
+                                <input placeholder="Search" type="search" class="gn-search">
+                                <a class="gn-icon gn-icon-search"><span>Search</span></a>
+                            </li>-->
+                            <li>
+                                <a class="gn-icon gn-icon-perfil" href="/user/perfil">Perfil</a>
+                                
+                            </li>
+                            <li>
+                                <a class="gn-icon gn-icon-horario" href="/user/horario">Horario</a>
+                            </li>
+                            <li>
+                                <a class="gn-icon gn-icon-horario" href="/user/agenda">Agenda</a>
+                            </li>
+                            <li ng-if="tipoUsuario=='moderador'">
+                                <a class="gn-icon gn-icon-perfil" href="/user/conectados">Conectados</a>
+                            </li>
+                            <li>
+                                <a class="gn-icon gn-icon-archive" href="/user/archivos">Archivos</a>
+                            </li>
+                            <li>
+                                <a class="gn-icon gn-icon-location" href="/user/aulas">Aulas</a>
+                            </li>
+                            <li>
+                                <a class="gn-icon gn-icon-foro" href="/user/foro">Foro</a>
+                            </li>
+                            <li>
+                                <a class="gn-icon gn-icon-contract" ng-click="logout()">Salir</a>
+                            </li>
+                        </ul>
+                    </div><!-- /gn-scroller -->
+                </nav>
+            </li>
+        </ul>
+    </div>    

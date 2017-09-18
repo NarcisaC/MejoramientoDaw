@@ -1,0 +1,83 @@
+.titulo-pagina{
+	font-family: 'Narkisim';
+	text-align: center;
+	position: relative;
+	top: 23px;
+	font-size: 2.5em;
+}
+
+.featurette-divider{
+	/*margin: 0% 5% 0% 5%;*/
+	position: relative;
+	top: 22.5px;
+}
+
+.perfil {
+	left: 30%;
+	top: 50px;
+	font-size: 1.2em;
+}
+
+/*#body1{
+	max-width: 100%;
+	background-color: hsla(192, 15%, 99%,1);
+	padding-left: 240px;
+	top: 50px;
+
+}*/
+
+div[id="body2"]{
+	margin: 0% 10% 0% 10%;
+	display: inline-block;
+}
+
+i[class*="glyphicon glyphicon-"]{
+	padding-bottom: 5%; 
+}
+
+.fb-page{
+	margin-bottom:15px;
+}
+
+/**************BODY**************/
+.well{
+	
+	margin-top: 40px;
+	margin-bottom: 40px;
+	background-color: hsla(192, 15%, 99%,1);
+	width: 100%;
+}
+
+.row{
+	color: rgba(0,0,0,1);
+}
+
+/*************FIN BODY***********/
+
+
+.foto {
+	width: 200px!important;
+}
+
+/*@media screen and (max-width: 720px){
+	#body1 {
+		padding-left: 160px;
+	}
+}*/
+@media screen and (max-width: 800px){
+
+	.foto img{
+		max-height: 200px;
+		margin: auto;
+	}
+
+	.perfil, .titulo-pagina, .featurette-divider {
+		top: 5px;
+
+	}
+	.perfil {
+		font-size: 0.8em;
+	}
+
+
+}

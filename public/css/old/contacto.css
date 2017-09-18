@@ -1,0 +1,72 @@
+*{
+ 	font-family: 'Narkisim';
+ 	/*color: rgba(255,255,255,1);*/
+ }
+ 
+ li {
+ 	list-style: none;
+ }
+ 
+ li a {
+ 	color: rgba(0,28,67,1);
+ }
+ 
+.titulo-pagina{
+	font-family: 'Narkisim';
+	text-align: center;
+	position: relative;
+	top: 23px;
+	font-size: 2em;
+ 	font-weight: bold;
+}
+
+.featurette-divider{
+	margin: 0% 5% 0% 5%;
+	position: relative;
+	top: 22.5px;
+}
+
+.page-header{
+	text-align: center;
+	font-size: 2em;
+ 	font-weight: bold;
+ }
+ 
+ .intro-text {
+ 	text-align: center;
+ 	font-size: 2em;
+ 	font-weight: bold;
+}
+
+div[id="body"]{
+	margin: 0% 5% 0% 5%;
+	position: relative;
+	top: 50px;
+}
+
+div[class="row"]{
+	margin: 0% 5% 0% 5%;
+	position: relative;
+	top: 50px;
+}
+
+#comentarios{
+	margin-right: 5%;
+	margin-left: 5%;
+}
+
+
+.page-header, .col-md-4{
+	color: rgba(0,0,0,1);
+}
+
+#datos{
+	position: relative;
+	left: -2%;
+}
+
+#datos p {
+ 	margin: auto;
+ 	padding:0;
+ 	text-align: center;
+ } 

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>Control Ayudantías-Contactos</title>
+
+    <!-- Bootstrap -->
+    <link href="/css/contacto.css" rel="stylesheet">
+    <link href="/css/estilo.general1.css" rel="stylesheet">
+
+    <!-- Ícono en la pestaña de la página -->
+    <link rel="shortcut icon" href="/img/icono.png">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Slab:100,300,400,600,700,100italic,300italic,400italic,600italic,700italic" rel="stylesheet" type="text/css">
+
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet"/>
+
+    <% include ../include/librerias %>
+
+  </head>
+
+  <body ng-app="myApp" ng-controller="ContactoCtrl">
+
+    <% include ../include/encabezado %>
+    <!--Encabezado -->
+  
+  <!--AQUI EMPIEZA EL CONTENIDO DEL CENTRO-->
+    <h2 class="titulo-pagina">Portafolio</h2>
+
+
+    <hr class="featurette-divider">  
+
+    <div id="body" class="container">
+
+            <div class="col-md-8">
+                <img class="img-responsive" src="/img/galeria1.jpg" alt="">
+            </div>
+
+            <div id="datos" class="col-md-4">
+                    <p>Km 30., Vía Perimetral 5</p>
+                    <p>Guayaquil, Ecuador</p>
+                    <p>+593 9999 878 398</p><br />
+                    <p><a href="mailto:btumbaco@espol.edu.ec">btumbaco@espol.edu.ec</a></p>
+                    <p><a href="mailto:ncolcha@espol.edu.ec">ncolcha@espol.edu.ec</a></p>
+                    <p><a href="mailto:aremvint@espol.edu.ec">aremvint@espol.edu.ec</a></p>
+                    <p><a href="mailto:elimesan@espol.edu.ec">elimesan@espol.edu.ec</a></p>
+            </div>
+
+        </div>
+        <!-- /.row -->
+
+        <!-- Related Projects Row -->
+        <div class="row">
+
+            <div class="col-lg-12">
+                <h3 class="page-header">Galería</h3>
+            </div>
+
+            <div class="col-sm-3 col-xs-6">
+                <a href="#">
+                    <img class="img-responsive portfolio-item" src="/img/galeria2.jpg" alt="">
+                </a>
+            </div>
+
+            <div class="col-sm-3 col-xs-6">
+                <a href="#">
+                    <img class="img-responsive portfolio-item" src="/img/galeria8.jpg" alt="">
+                </a>
+            </div>
+
+            <div class="col-sm-3 col-xs-6">
+                <a href="#">
+                    <img class="img-responsive portfolio-item" src="/img/galeria4.jpg" alt="">
+                </a>
+            </div>
+
+            <div class="col-sm-3 col-xs-6">
+                <a href="#">
+                    <img class="img-responsive portfolio-item" src="/img/galeria5.jpg" alt="">
+                </a>
+            </div>
+
+         </div>
+        <!-- /.row -->
+        </div >
+                
+        <div class="clearfix"></div>
+        </div>
+       </div>
+
+        <div class="row" id="row">
+            <div class="box">
+                <div class="col-lg-2" ></div>
+                <div class="col-lg-8 info" >
+                    <hr>
+                    <h2 class="intro-text text-center">Déjanos
+                        <strong>tu comentario</strong>
+                    </h2>
+                    <hr>
+                    <form name="contactoForm">
+                        <div class="row1" >
+                            <div class="form-group col-lg-4">
+                                <label>Nombre*</label>
+                                <input type="text" class="form-control" ng-model="nombre" required>
+                            </div>
+                            <div class="form-group col-lg-4">
+                                <label>Correo electrónico*</label>
+                                <input type="email" class="form-control" ng-model="email" required>
+                            </div>
+                            <div class="form-group col-lg-4">
+                                <label>Número de teléfono*</label>
+                                <input type="tel" class="form-control" ng-model="telefono" required>
+                            </div>
+                            <div class="clearfix"></div>
+                            <div class="form-group col-lg-12">
+                                <label>Mensaje*</label>
+                                <textarea class="form-control" rows="6" ng-model="mensaje" required></textarea>
+                            </div>
+                            <div class="form-group col-lg-12">
+                                <small>* = Campo obligatorio</small>
+                            </div>
+                            <div class="form-group col-lg-12 text-center">
+                                <button type="submit" class="btn btn-primary" ng-click="enviarCorreo()" ng-disabled="contactoForm.$invalid">
+                                    Enviar
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-lg-2" ></div>
+            </div>
+        </div>
+
+    
+    <!-- /.container -->
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+
+  <!--AQUI TERMINA EL CONTENNIDO DEL CENTRO-->
+
+    <footer>
+      <a href="https://www.facebook.com/bryandariot"><i class="fa fa-facebook"></i></a>
+      <a href="https://twitter.com/elisanvil"><i class="fa fa-twitter"></i></a>
+      <a href="https://www.linkedin.com/in/elisavil"><i class="fa fa-linkedin"></i></a>
+      <!--<a href="#"><i class="fa fa-instagram"></i></a>-->
+    <br />
+      <small>©2017 por B. Tumbaco, N. Colcha, A. Vintimilla y E. Sánchez</small>
+    </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+  </body>
+</html>

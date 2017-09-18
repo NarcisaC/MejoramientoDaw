@@ -1,0 +1,92 @@
+.titulo-pagina{
+	font-family: 'Narkisim';
+	text-align: center;
+	position: relative;
+	top: 23px;
+	font-size: 2em;
+	font-weight: bold;
+}
+
+.featurette-divider{
+	margin: 0% 5% 0% 5%;
+	position: relative;
+	top: 22.5px;
+}
+
+#centro{
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.row {
+  margin-bottom: 20px;
+  width: 100%
+}
+
+div[class="col-md-8"] {
+	position: relative;
+	top: 50px;
+	left: 3%;
+}
+
+/*caja naranja con amarillo*/
+div[class = "panel panel-default"]{
+	width: 300%;
+	padding-bottom: 50%;
+	margin-bottom: 25%;
+}
+
+/*div[class="panel panel-default"] .panel-heading{
+	background-color: hsla(48, 89%, 70%,.75);
+}*/
+
+/*caja rojita*/
+div[class = "panel panel-primary"]{
+	width: 300%;
+	padding-bottom: 50%;
+	margin-bottom: 25%;
+}
+
+/*div[class="panel panel-primary"] .panel-heading{
+	background-color: hsla(6, 78%, 74%,.75);
+}*/
+
+/*caja morada*/
+div[class = "panel panel-success"]{
+	width: 300%;
+	padding-bottom: 50%;
+	margin-bottom: 25%;
+	margin-left: 200%;
+}
+
+/*div[class="panel panel-success"] .panel-heading{
+	background-color: hsla(315, 23%, 87%,.75);
+}*/
+
+/*caja amarilla*/
+div[class = "panel panel-info"]{
+	width: 300%;
+	padding-bottom: 50%;
+	margin-bottom: 25%;
+	margin-left: 200%;
+}
+
+/*div[class="panel panel-info"] .panel-heading{
+	background-color: hsla(1, 65%, 67%,.75);
+}*/
+
+/*Opacidad para todas las cajas*/
+div[class*="panel panel-"] .panel-title:hover {
+	 opacity: 0.3;
+}
+
+div#menu li {
+	list-style: none;
+}
+
+div#menu li a {
+	color: #Fff;
+}
+
+
+

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Control Ayudantías-Inciar Sesión</title>
+
+    <!-- Bootstrap -->
+    <link href="/css/inicia_sesion.css" rel="stylesheet">
+    <link href="/css/estilo.general1.css" rel="stylesheet">
+    
+    <!-- Ícono en la pestaña de la página -->
+    <link rel="shortcut icon" href="/img/icono.png">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet"/>
+      
+    <!-- jquery -->
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="/js/bootstrap.min.js"></script>
+
+    <!-- Own JS & CSS-->
+    <% include ../include/librerias %>
+
+  </head>
+  <body ng-app="myApp" ng-controller="LoginController">
+  
+    <% include ../include/encabezado %>
+    <!--Encabezado -->
+    
+    <div class="container-sesion">
+
+      <form class="form-signin">
+        <h2 class="form-signin-heading">Iniciar Sesión</h2>
+
+        <label for="inputEmail" class="sr-only">Correo electrónico</label>
+        <input type="email" id="inputEmail" class="form-control" ng-model="user.correo" placeholder="Correo electrónico" required autofocus>
+        
+        <br>
+
+        <label for="inputPassword" class="sr-only">Contraseña</label>
+        <input type="{{typeInput}}" id="inputPassword" class="form-control" ng-model="user.password" placeholder="Contraseña" required>
+
+        <div class="checkbox">
+          <label>
+            <input ng-model="myCheck" type="checkbox" name="type" ng-change="changeType()"> Mostrar/Ocultar contraseña
+          </label>
+        </div>
+
+        <button class="btn btn-lg btn-primary btn-block" id="btnSubmit" ng-click="iniciarSesion()" ng-disabled="(!user.correo||!user.password)">Ingresar</button><!--OJo poner submit-->
+        
+        <br>
+        <br>
+        <p id="advice">¿No tienes cuenta? <a href="/registrate">Regístrate</a></p>
+      </form>
+
+    </div> <!-- /container -->
+
+    <footer>
+      <a href="https://www.facebook.com/bryandariot"><i class="fa fa-facebook"></i></a>
+      <a href="https://twitter.com/elisanvil"><i class="fa fa-twitter"></i></a>
+      <a href="https://www.linkedin.com/in/elisavil"><i class="fa fa-linkedin"></i></a>
+      <!--<a href="#"><i class="fa fa-instagram"></i></a>-->
+    <br />
+      <small>©2017 por B. Tumbaco, N. Colcha, A. Vintimilla y E. Sánchez</small>
+    </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+
+  </body>
+</html>

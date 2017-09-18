@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>Control Ayudantías-Agenda</title>
+
+    <% include ../include/librerias %>
+    
+    <!-- Bootstrap -->
+    <link href="/css/agenda.css" rel="stylesheet">
+    <link href="/css/estilo.general1.css" rel="stylesheet">
+
+    <!-- Ícono en la pestaña de la página -->
+    <link rel="shortcut icon" href="/img/icono.png">
+
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet"/>
+
+    <!-- Menu vertical de la pestaña de la página -->
+    <link rel="stylesheet" type="text/css" href="/css/component.css">
+    <script src="/js/modernizr.custom.js"></script>
+    
+
+  </head>
+
+ <body ng-app="myApp" ng-controller="horarioCtrl" ng-init="init()">
+
+    <% include ../include/encabezado %>
+    <!--Encabezado -->
+    
+    <% include ../include/menu-vertical %>
+    <!-- Menu propio del ayudante--> 
+
+    <div  id="body1" class="" style="margin-bottom: 10%;">
+
+      <h2 class="titulo-pagina" style="margin:3% auto;">Agenda</h2>
+      <span id="tipoUsuario" class="hidden hide"><%= tipoUsuario %></span>
+
+      <hr class="featurette-divider" />
+      <div class="content-block">
+        <div class="row">
+          <div class="col-xs-12 content">
+            <div id="content" class="postList">
+                
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <footer>
+      <a href="https://www.facebook.com/bryandariot"><i class="fa fa-facebook"></i></a>
+      <a href="https://twitter.com/elisanvil"><i class="fa fa-twitter"></i></a>
+      <a href="https://www.linkedin.com/in/elisavil"><i class="fa fa-linkedin"></i></a>
+      <!--<a href="#"><i class="fa fa-instagram"></i></a>-->
+    <br />
+      <small>©2017 por B. Tumbaco, N. Colcha, A. Vintimilla y E. Sánchez</small>
+    </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/agenda.js"></script>
+  </body>
+</html>

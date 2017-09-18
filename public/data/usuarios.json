@@ -1,0 +1,23 @@
+[
+    { 
+   		"user": "ncolcha@espol.edu.ec", 
+   		"pass": "HolaqHace", 
+      "name": "Narcisa",
+      "lastname": "Colcha",
+      "age": "15"
+   	}, 
+    { 
+   		"user": "yo@espol.edu.ec", 
+   		"pass": "yoclave",
+      "name": "YO",
+      "lastname": "PPP",
+      "age": "19"
+   	}, 
+    { 
+   		"user": "tu@espol.edu.ec", 
+   		"pass": "tuclave",
+      "name": "TU",
+      "lastname": "SPP",
+      "age": "20"
+    }
+]

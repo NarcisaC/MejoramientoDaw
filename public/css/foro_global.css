@@ -1,0 +1,38 @@
+.titulo-pagina{
+	font-family: 'Narkisim';
+	text-align: center;
+	position: relative;
+	top: 23px;
+	font-size: 2em;
+	font-weight: bold;
+}
+
+.featurette-divider{
+	margin: 0% 5% 0% 5%;
+	position: relative;
+	top: 22.5px;
+}
+
+#centro{
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.row {
+  margin-bottom: 20px;
+  width: 100%
+}
+
+div[class="col-md-8"] {
+	position: relative;
+	top: 50px;
+	left: 3%;
+}
+
+div#menu li {
+	list-style: none;
+}
+
+div#menu li a {
+	color: #Fff;
+}

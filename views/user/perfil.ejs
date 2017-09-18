@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Control Ayudantías-Perfil</title>
+
+    <% include ../include/librerias %>
+
+    <!-- Bootstrap -->
+    <link href="/css/perfil.css" rel="stylesheet">
+    <link href="/css/estilo.general1.css" rel="stylesheet">
+
+    <!-- Ícono en la pestaña de la página -->
+    <link rel="shortcut icon" href="/img/icono.png">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <link rel="shortcut icon" href="/../favicon.ico">
+    <!--<link rel="stylesheet" type="text/css" href="css/normalize.css">-->
+    <!--<link rel="stylesheet" type="text/css" href="css/demo.css">-->
+    <link rel="stylesheet" type="text/css" href="/css/component.css">
+    <script src="/js/modernizr.custom.js"></script>
+    
+  </head>
+  <body ng-app="myApp" ng-controller="PerfilUsuarioCtrl" ng-init="init()">
+    
+    <% include ../include/encabezado %>
+    <!--Encabezado -->
+
+    <% include ../include/menu-vertical %>
+    <!-- Menu propio del ayudante-->
+
+    <!--contenido BODY-->
+    <div id="body1" class="">
+        <h2 class="titulo-pagina">Perfil</h2>    
+        <hr class="featurette-divider">
+        <span id="tipoUsuario" class="hidden hide"><%= tipoUsuario %></span>
+       <!-- <div  id="body2" class="row"-->
+            <div class="perfil col-xs-8 col-sm-8 col-md-8">
+                <!--div class="well well-sm"-->
+                    <div class="row">
+                        <div class="foto col-sm-4 col-md-4">
+                            <img ng-if="usuario.foto" ng-src="{{usuario.foto}}" alt="Foto de perfil" class="img-rounded img-responsive ng-cloak" />
+                        </div>
+                        <div class="col-sm-8 col-md-8">
+                            <h4 ng-if="(usuario.nombres && usuario.apellidos)" style="cursor:pointer;"> 
+                              {{usuario.nombres}} {{usuario.apellidos}} 
+                              <a href="/user/perfil/editar/{{usuario._id}}" style="text-decoration:none">
+                                <span style="font-size:0.8em"> 
+                                  &nbsp;
+                                  <span style="border-left:1px solid #000;height:20px"></span>
+                                  &nbsp;&nbsp;
+                                  <i class="glyphicon glyphicon-pencil" style="font-size:0.8em"></i>
+                                  Editar Perfil
+                                </span>
+                              </a>
+                            </h4>
+                            <!--
+                            <small><cite title="San Francisco, USA">San Francisco, USA <i class="glyphicon glyphicon-map-marker">
+                            </i></cite></small>
+                            -->
+                            <br>
+                            <p>
+                                <i ng-if="usuario.correo" class="glyphicon glyphicon-envelope"></i>
+                                <span ng-if="usuario.correo">
+                                  <strong>Correo: &nbsp;</strong>
+                                  {{usuario.correo}}
+                                </span>
+                                <br>
+
+                                <i ng-if="usuario.cedula" class="glyphicon glyphicon-credit-card"></i>
+                                <span ng-if="usuario.cedula">
+                                  <strong>Cédula: &nbsp;</strong>
+                                  {{usuario.cedula}}
+                                </span>
+                                <br>
+
+                                <i ng-if="usuario.matricula" class="glyphicon glyphicon-credit-card"></i>
+                                <span ng-if="usuario.matricula">
+                                  <strong>Matricula: &nbsp;</strong>
+                                  {{usuario.matricula}}
+                                </span>
+                                <br>
+
+
+                                <i ng-if="usuario.carrera" class="glyphicon glyphicon-education"></i>
+                                <span ng-if="usuario.carrera">
+                                  <strong>Carrera: &nbsp;</strong>
+                                  {{usuario.carrera}}
+                                </span>
+                                <br>                                
+
+                                <i ng-if="usuario.telefono" class="glyphicon glyphicon-phone"></i> 
+                                <span ng-if="usuario.telefono">
+                                  <strong>Teléfono: &nbsp;</strong>
+                                  {{usuario.telefono}}
+                                </span>
+                            </p>
+                        </div>
+
+                        <div ng-if="usuario.redesSociales" class="col-md-12" style="margin-top:5%;padding-bottom:15%">
+                          <h4>Redes sociales</h4>
+                          <div>
+                            <h4> 
+                                <div ng-if="usuario.redesSociales.twitter" style="font-size:0.8em"> 
+                                  <div class="col-md-4 text-right">
+                                    Twitter  
+                                  </div>
+                                  <div class="col-md-8 text-left">
+                                    <a href="{{usuario.redesSociales.twitter}}">
+                                      {{usuario.redesSociales.twitter}}
+                                    </a>
+                                  </div>
+                                  <br>
+                                  <br>
+                                </div>
+
+                                <div ng-if="usuario.redesSociales.google" style="font-size:0.8em"> 
+                                  <div class="col-md-4 text-right">
+                                    Google +
+                                  </div>
+                                  <div class="col-md-8 text-left">
+                                    <a href="{{usuario.redesSociales.google}}">
+                                      {{usuario.redesSociales.google}}
+                                    </a>
+                                  </div>
+                                  <br>
+                                  <br>
+                                </div>
+
+                                <div ng-if="usuario.redesSociales.facebook" style="font-size:0.8em"> 
+                                  <div class="col-md-4 text-right">
+                                    Facebook
+                                  </div>
+                                  <div class="col-md-8 text-left">
+                                    <a href="{{usuario.redesSociales.facebook}}">
+                                      {{usuario.redesSociales.facebook}}
+                                    </a>
+                                  </div>
+                                  <br>
+                                  <br>
+                                </div>
+
+                                <div ng-if="usuario.redesSociales.github" style="font-size:0.8em"> 
+                                  <div class="col-md-4 text-right">
+                                    Github
+                                  </div>
+                                  <div class="col-md-8 text-left">
+                                    <a href="{{usuario.redesSociales.github}}">
+                                      {{usuario.redesSociales.github}}
+                                    </a>
+                                  </div>
+                                  <br>
+                                  <br>
+                                </div>
+                            </h4>
+                          </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        <!--/div-->
+
+    <footer>
+      <a href="https://www.facebook.com/bryandariot"><i class="fa fa-facebook"></i></a>
+      <a href="https://twitter.com/elisanvil"><i class="fa fa-twitter"></i></a>
+      <a href="https://www.linkedin.com/in/elisavil"><i class="fa fa-linkedin"></i></a>
+      <!--<a href="#"><i class="fa fa-instagram"></i></a>-->
+    <br />
+      <small>©2017 por B. Tumbaco, N. Colcha, A. Vintimilla y E. Sánchez</small>
+    </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>  
+    
+    <!--Propio del Menu lateral-->
+    <script src="/js/classie.js"></script>
+    <script src="/js/gnmenu.js"></script>
+    <script>
+        new gnMenu( document.getElementById( 'gn-menu' ) );
+    </script>
+
+  </body>
+</html>

@@ -1,0 +1,135 @@
+*{
+	
+	font-family: "Times New Roman";
+	/*border: 1px solid yellow;*/
+}
+
+
+
+/*HEADER*/
+header{
+		width:100%;
+		overflow:hidden;
+		margin-bottom:0px;
+}
+
+
+.imagen {
+		float: left;
+		position: relative;
+		left: -10%;
+		top: -15px;
+}
+
+h1.tit{
+	font-size: 24pt;
+	color: #64B4F5;
+	font-weight: bold;
+	position: relative;
+	left: -8%;
+	top: -30px;
+}
+
+
+h2.tit{
+
+	font-size: 17.5pt;
+	color: #64B4F5;
+	font-weight: bold;
+	position: relative;
+	left: -8%;
+	top: -30px;	
+}
+
+
+
+ /*Arreglando el header*/
+
+nav[class= "navbar navbar-default navbar-fixed-top"]{
+  border-bottom: 2px solid #64B4F5;
+  background-color: white;
+  position: absolute;
+  text-align: left;
+  top: 25%;
+
+}
+
+ul[class= "nav navbar-nav"]{
+	position: relative;	
+	text-align: left;
+	font-size: 20pt;
+    background-color: white;
+    font-family: "Times New Roman";
+}
+
+.navbar-header{
+
+  background-color: white;
+}
+
+#navbar{
+
+	background-color: white;	
+
+}
+
+
+div[class="collapse navbar-collapse"]{
+
+	background-color: white;
+}
+
+div[class="row row-offcanvas row-offcanvas-right"]{
+
+	background-color: white;
+}
+
+.jumbotron{
+	background-color: white;		
+}
+
+
+/*HASTA AQUI ARREGLE------------------------------------------*/
+
+
+*{
+	padding:0px;
+	margin:10px;
+}
+
+
+.nav > li {
+	float:right;
+}
+
+ul, ol{
+	list-style:none;
+}
+
+
+.nav li a{
+	padding:10px 15px;
+	display:block;
+}
+
+.nav li ul{
+	display:none;
+	position:absolute;
+	min-width:140px;
+}
+
+.nav li:hover >ul{
+	display:block;
+}
+
+
+.wrapper {
+    margin: auto;
+    width: 98%;
+    height: 100%;
+    background-color: #848484;
+    -webkit-border-radius: 0 0 3px 3px;
+    -moz-border-radius: 0 0 3px 3px;
+    border-radius: 0 0 3px 3px;
+    padding: 0 20px 20px;
+}

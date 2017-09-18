@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>Control Ayudantías-Horario</title>
+
+    <% include ../include/librerias %>
+    
+    <!-- Bootstrap -->
+    <link href="/css/horario.css" rel="stylesheet">
+    <link href="/css/estilo.general1.css" rel="stylesheet">
+
+    <!-- Ícono en la pestaña de la página -->
+    <link rel="shortcut icon" href="/img/icono.png">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet"/>
+
+    <!-- Menu vertical de la pestaña de la página -->
+    <link rel="stylesheet" type="text/css" href="/css/component.css">
+    <script src="/js/modernizr.custom.js"></script>
+
+  </head>
+
+  <body ng-app="myApp" ng-controller="horarioCtrl" ng-init="init()">
+  
+    <% include ../include/encabezado %>
+    <!--Encabezado -->
+
+    <% include ../include/menu-vertical %>
+    <!-- Menu propio del ayudante-->
+    
+    <!--Necesario etiqueta q engoble todo lo siguiente-->
+    <div  id="body1" class="" >
+      <h2 class="titulo-pagina">Horarios de Ayudantías</h2>
+      <span id="tipoUsuario" class="hidden hide"><%= tipoUsuario %></span>
+
+      <hr class="featurette-divider">
+
+      <style>
+        .busy { background-color: #d3d3d3; }
+        .nobusy {  }
+      </style>
+
+      <div class="col-md-2"></div>
+      <div class="table-responsive col-md-8" style="margin-bottom: 20%;">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Hora</th>
+              <th>Lunes</th>
+              <th>Martes</th>
+              <th>Miércoles</th>
+              <th>Jueves</th>
+              <th>Viernes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="hora in Horas">
+              <td> {{hora|date:"HH:mm"}} - {{ sumarMinutos(hora,30)|date:"HH:mm" }} </td>
+              <td class="horario-option" ng-class="{nobusy: Dispo[$index]==false, busy: Dispo[$index]==true} " ></td>
+              <td class="horario-option"></td>
+              <td class="horario-option"></td>
+              <td class="horario-option"></td>
+              <td class="horario-option"></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />        
+
+    <footer>
+      <a href="https://www.facebook.com/bryandariot"><i class="fa fa-facebook"></i></a>
+      <a href="https://twitter.com/elisanvil"><i class="fa fa-twitter"></i></a>
+      <a href="https://www.linkedin.com/in/elisavil"><i class="fa fa-linkedin"></i></a>
+      <!--<a href="#"><i class="fa fa-instagram"></i></a>-->
+    <br />
+      <small>©2017 por B. Tumbaco, N. Colcha, A. Vintimilla y E. Sánchez</small>
+    </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+
+    <!--Propio del Menu lateral-->
+    <script src="/js/classie.js"></script>
+    <script src="/js/gnmenu.js"></script>
+    <script>
+        new gnMenu( document.getElementById( 'gn-menu' ) );
+    </script>
+    
+  </body>
+</html>

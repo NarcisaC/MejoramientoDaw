@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>Control Ayudantías-Foro Estudiantes</title>
+
+    <% include ../include/librerias %>
+    
+    <!-- Bootstrap -->
+    <link href="/css/foro_estudiantes.css" rel="stylesheet">
+    <link href="/css/estilos-menu-lateral.css" rel="stylesheet">
+    <link href="/css/estilo.general1.css" rel="stylesheet">
+
+    <!-- Ícono en la pestaña de la página -->
+    <link rel="shortcut icon" href="/img/icono.png">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet"/>
+
+    <link rel="shortcut icon" href="/../favicon.ico">
+    <!--<link rel="stylesheet" type="text/css" href="css/normalize.css">-->
+    <!--<link rel="stylesheet" type="text/css" href="css/demo.css">-->
+    <link rel="stylesheet" type="text/css" href="/css/component.css">
+    <script src="/js/modernizr.custom.js"></script>
+
+
+  </head>
+  <body ng-app="myApp" ng-controller="foroContenidoCtrl" ng-init="init()">
+  
+    <% include ../include/encabezado %>
+    <!--Encabezado -->
+
+    <% include ../include/menu-vertical %>
+    <!-- Menu propio del ayudante-->
+
+    <div class="row">
+      <div class="col-md-2"></div>
+      <div class="col-md-8" style="margin:0% auto 10% auto;">
+        <div id="centro" class="row">
+          <!-- Campo oculto -->
+          <span id="idForo" class="hidden hide"><%= idForo %></span>
+          <span id="tipoUsuario" class="hidden hide"><%= tipoUsuario %></span>
+          <span id="correoUsuario" class="hidden hide"><%= correo %></span>
+          <!-- Titulo del foro -->
+          <h3 ng-bind="foro.titulo" style="color:red"></h3>
+          <hr>
+          <!-- contenido del foro-->
+          <h3 ng-bind="foro.contenido"></h3>
+          <!-- Comentarios-->
+          <div class="col-md-12" style="margin-top:8%;">
+            <h4>Comentarios:</h4>
+
+            <div class="col-md-12" ng-repeat="comentario in foro.comentarios" style="background-color:#d3d3d3; padding:2%; padding-bottom:0%">
+              <div style="width:9%;float:left;">
+                <img ng-if="comentario.propietario.foto" ng-src="{{comentario.propietario.foto}}" width="60" height="60">
+              </div>
+
+              <div style="padding:0px;width:91%;float:left; word-wrap: break-word;">
+                <p ng-if="(comentario.propietario.nombres && comentario.propietario.apellidos)" style="margin:0px;">
+                  <strong>
+                    {{comentario.propietario.nombres}} {{comentario.propietario.apellidos}}
+                  </strong>
+                </p>
+                <p ng-if="comentario.contenido" ng-bind="comentario.contenido"></p>
+                <p ng-if="comentario.fechaComentario">
+                  {{ comentario.fechaComentario | date:"medium" }}
+                </p>
+              </div>
+
+              <div class="text-right" style="width:100%; margin-bottom:1%;">
+                <a ng-if="(!checkBloqueo(comentario.propietario)&&(tipoUsuario=='admin'||tipoUsuario=='moderador'))" ng-click="confirmarBloquear(comentario.propietario)">Bloquear usuario</a>
+                <a ng-if="(checkBloqueo(comentario.propietario)&&(tipoUsuario=='admin'||tipoUsuario=='moderador'))" ng-click="confirmarDesbloquear(comentario.propietario)">Desbloquear usuario</a>
+                &nbsp;&nbsp;
+                <a ng-if="(tipoUsuario=='admin')" ng-click="confirmarEliminar(comentario)">Eliminar comentario</a>
+              </div>
+              <hr style="margin:0% 0%; color:#000; clear:both">
+            </div>
+
+            <!-- Nuevo comentario-->
+            <div ng-if="!isBlocked" class="col-md-12" style="background-color:#d3d3d3; padding:2%;">
+              <div class="col-md-12" style="padding:0%">
+                <label for="Contenido">Nuevo comentario (Quedan <span ng-bind="dispCont"></span> caracteres disponibles)</label>
+                <textarea class="form-control" rows="4" id="Contenido" placeholder="Ingrese el contenido" ng-model="comentarioNuevo.contenido" maxlength="{{maximoContenido}}" ng-keypress="restanteContenido()" ng-keyup="restanteContenido()" ng-readonly="isBlocked"></textarea>
+              </div>
+              <div class="col-md-12 text-right" style="padding-top:1%;padding-bottom:1%; padding-right:0%;">
+                <button class="btn btn-default" ng-click="comentar()" ng-disabled="comentarioNuevo.contenido==''">Agregar comentario</button>
+              </div>
+            </div>
+            <div ng-if="isBlocked" class="col-md-12" style="background-color:#d3d3d3; padding:2%;">
+              <h3>No puedes comentar en este foro</h3>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+      <div class="col-md-2"></div>
+    </div>
+
+    <footer>
+      <a href="https://www.facebook.com/bryandariot"><i class="fa fa-facebook"></i></a>
+      <a href="https://twitter.com/elisanvil"><i class="fa fa-twitter"></i></a>
+      <a href="https://www.linkedin.com/in/elisavil"><i class="fa fa-linkedin"></i></a>
+      <!--<a href="#"><i class="fa fa-instagram"></i></a>-->
+    <br />
+      <small>©2017 por B. Tumbaco, N. Colcha, A. Vintimilla y E. Sánchez</small>
+    </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>  
+
+    <!--Propio del Menu lateral-->
+    <script src="/js/classie.js"></script>
+    <script src="/js/gnmenu.js"></script>
+    <script>
+        new gnMenu( document.getElementById( 'gn-menu' ) );
+    </script>
+    
+  </body>
+
+    
+
+</html>

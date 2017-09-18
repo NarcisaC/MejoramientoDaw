@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="es">
+ <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>Control Ayudantías-Editar Perfil</title>
+
+    <% include ../include/librerias %>
+
+    <!-- Bootstrap -->
+    <link href="/css/editar_perfil.css" rel="stylesheet">
+    <link href="/css/estilo.general1.css" rel="stylesheet">
+    
+    <!-- Ícono en la pestaña de la página -->
+    <link rel="shortcut icon" href="/img/icono.png">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet"/>
+
+    <link rel="shortcut icon" href="/../favicon.ico">
+    <!--<link rel="stylesheet" type="text/css" href="css/normalize.css">-->
+    <!--<link rel="stylesheet" type="text/css" href="css/demo.css">-->
+    <link rel="stylesheet" type="text/css" href="/css/component.css">
+    
+    <!--
+    <script src="/js/modernizr.custom.js"></script>
+    -->
+   
+  </head>
+  
+  <body ng-app="myApp" ng-controller="EditPerfilUsuarioCtrl" ng-init="init()">
+  
+    <% include ../include/encabezado %>
+    <!--Encabezado -->
+    
+    <% include ../include/menu-vertical %>
+    <!-- Menu propio del ayudante-->
+
+    <!--contenido BODY-->
+    
+    <div  id="body1" class="">
+        
+      <div class="container">
+        <h1 class="page-header">Editar perfil</h1>  
+        <div class="row">
+          
+         <form class="form-horizontal" name="editUser">
+
+          <div class="col-md-4 col-sm-6 col-xs-12">
+            <div class="text-center">
+            <div class="text-center" style="width:100%">
+              <h2>Foto*</h2>
+              <img id="preview" class="avatar img-thumbnail" ng-src="{{datosUsuario.foto}}"/>
+              <div id="span" style="color: #000">Vista previa</div>
+              <input id="image_file" name="foto" class="text-center center-block well well-sm" onchange="angular.element(this).scope().selectFile()" type="file" ng-model="datosUsuario.foto" valid-file required>
+            </div>
+            </div>
+          </div>
+          
+          <div class="col-md-8 col-sm-6 col-xs-12 personal-info">
+          <h3>Información Personal</h3>
+
+            <div class="form-group">
+              <label class="col-md-2 control-label" style="color: #000">Nombres*</label>
+              <div class="col-md-6">
+                <input class="form-control" placeholder="Ingrese su nombre" type="text" ng-model="datosUsuario.nombres" onkeypress="return validateTextInput(event)" required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="col-md-2 control-label" style="color: #000">Apellido*</label>
+              <div class="col-md-6">
+                <input class="form-control" placeholder="Ingrese su apellido" type="text" ng-model="datosUsuario.apellidos" onkeypress="return validateTextInput(event)" required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="col-md-2 control-label" style="color: #000">Cédula*</label>
+              <div class="col-md-6">
+                <input class="form-control" placeholder="Ingrese su cedula" type="text" ng-model="datosUsuario.cedula" onkeypress="return (event.charCode>47 && event.charCode<58)" maxlength="10" minlength="10" required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="col-md-2 control-label" style="color: #000">Correo*</label>
+              <div class="col-md-6">
+                <input class="form-control" placeholder="Ingrese su correo" type="email" ng-model="datosUsuario.correo" required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="col-md-2 control-label" style="color: #000">Carrera*</label>
+              <div class="col-md-6">
+                <input class="form-control" placeholder="Ingrese su carrera" type="text" ng-model="datosUsuario.carrera" onkeypress="return validateTextInput(event)" required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="col-md-2 control-label" style="color: #000">Matrícula*</label>
+              <div class="col-md-6">
+                <input class="form-control" placeholder="Ingrese su matricula" type="text" ng-model="datosUsuario.matricula" onkeypress="return (event.charCode>47 && event.charCode<58)" maxlength="9" minlength="9" required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="col-md-2 control-label" style="color: #000">Teléfono</label>
+              <div class="col-md-6">
+                <input class="form-control" placeholder="Ingrese su teléfono" type="text" ng-model="datosUsuario.telefono" onkeypress="return (event.charCode>47 && event.charCode<58)" maxlength="10" minlength="10">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="col-md-2 control-label" style="color: #000">Contraseña*</label>
+              <div class="col-md-6">
+                <input class="form-control" placeholder="Ingrese su contraseña" type="{{typeInput}}" ng-model="datosUsuario.password" required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="col-md-2 control-label" style="color: #000">Repita la contraseña</label>
+              <div class="col-md-6">
+                <input class="form-control" placeholder="Repita la contraseña" type="{{typeInput}}" ng-model="repeatPassword" required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="col-md-12 text-left">
+                <small style="padding-left:8%;">* = Campo obligatorio</small>
+              </div>
+            </div>
+          </div>
+
+              <div class="col-md-12 text-center">
+                <div class="form-group">
+                  <div class=col-md-10>
+                    <h3 style="color:#000">Redes Sociales</h3>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="col-md-3 control-label" style="color: #000">Twitter</label>
+                  <div class="col-md-6">
+                    <input class="form-control" placeholder="Ingrese su nombre" type="text" ng-model="datosUsuario.redesSociales.twitter">
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="col-md-3 control-label" style="color: #000">Google +</label>
+                  <div class="col-md-6">
+                    <input class="form-control" placeholder="Ingrese su nombre" type="text" ng-model="datosUsuario.redesSociales.google">
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="col-md-3 control-label" style="color: #000">Facebook</label>
+                  <div class="col-md-6">
+                    <input class="form-control" placeholder="Ingrese su nombre" type="text" ng-model="datosUsuario.redesSociales.facebook">
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="col-md-3 control-label" style="color: #000">Github</label>
+                  <div class="col-md-6">
+                    <input class="form-control" placeholder="Ingrese su nombre" type="text" ng-model="datosUsuario.redesSociales.github">
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-12 text-center" style="margin-top:5%;margin-bottom:5%">
+                <div class="form-group">
+                  <div class=col-md-10>
+                    <input class="btn btn-primary" ng-disabled="(!editUser.$pristine && editUser.$invalid)" type="button" value="Guardar Cambios" ng-click="verificarPasswordEquals()">
+                    &nbsp;
+                    <input class="btn btn-default" value="Cancelar" ng-click="back()">
+                  </div>
+                </div>
+
+              </form>
+
+      </div>
+    </div>
+    
+    <br />
+    <br />
+    <br />
+    <br />
+
+    <footer>
+      <a href="https://www.facebook.com/bryandariot"><i class="fa fa-facebook"></i></a>
+      <a href="https://twitter.com/elisanvil"><i class="fa fa-twitter"></i></a>
+      <a href="https://www.linkedin.com/in/elisavil"><i class="fa fa-linkedin"></i></a>
+      <!--<a href="#"><i class="fa fa-instagram"></i></a>-->
+    <br />
+      <small>©2017 por B. Tumbaco, N. Colcha, A. Vintimilla y E. Sánchez</small>
+    </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+
+    <!--Propio del Menu lateral-->
+    <script src="/js/classie.js"></script>
+    <script src="/js/gnmenu.js"></script>
+
+    <script>
+      function validateTextInput(key) {
+        console.log(key.Code)
+        if ((key.keyCode < 97 || key.keyCode > 122) && (key.keyCode < 65 || key.keyCode > 90) && (key.keyCode != 45) && (key.keyCode != 241) && (key.keyCode != 209) && (key.keyCode != 32) && (key.keyCode != 225) && (key.keyCode != 233) && (key.keyCode != 237) && (key.keyCode != 243) && (key.keyCode != 250) && (key.keyCode != 193) && (key.keyCode != 201) && (key.keyCode != 205) && (key.keyCode != 211) && (key.keyCode != 218) ){
+          //return false;
+          return true;
+        }
+        else {
+          //return true;
+          return false;
+        }
+      }
+    </script>
+
+  </body>
+</html>

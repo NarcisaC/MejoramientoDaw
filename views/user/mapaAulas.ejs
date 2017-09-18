@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    
+     <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>Control Ayudantías-Mapa Aulas</title>
+
+    <% include ../include/librerias %>
+    
+    
+    <!-- Ícono en la pestaña de la página -->
+    <link rel="shortcut icon" href="/img/icono.png">
+    <link href="/css/mapa_aulas.css" rel="stylesheet">
+    <link href="/css/estilo.general1.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet"/>
+
+    <!-- Menu vertical de la pestaña de la página -->
+    <link rel="stylesheet" type="text/css" href="/css/component.css">
+    <script src="/js/modernizr.custom.js"></script>
+
+
+  </head>
+  <body ng-app="myApp" ng-controller="horarioCtrl" ng-init="init()">
+  
+    <% include ../include/encabezado %>
+    <!--Encabezado -->
+
+    <% include ../include/menu-vertical %>
+    <!-- Menu propio del ayudante-->
+
+    <div  id="body1" class="">
+      <!--*************MAPA********-->
+      <h2 class="titulo-pagina">Aulas</h2>
+
+
+      <hr class="featurette-divider">
+
+     <div id="mapa">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3987.021449508687!2d-79.96736193619874!3d-2.1454709999695036!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x6ac8b01c7f559f30!2sAuditorio+de+la+FIEC!5e0!3m2!1ses!2sec!4v1499676027799" ></iframe>
+     </div>
+    <!--****************FIN MAPA************-->
+  </div>
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+
+  <footer>
+    <a href="https://www.facebook.com/bryandariot"><i class="fa fa-facebook"></i></a>
+    <a href="https://twitter.com/elisanvil"><i class="fa fa-twitter"></i></a>
+    <a href="https://www.linkedin.com/in/elisavil"><i class="fa fa-linkedin"></i></a>
+    <!--<a href="#"><i class="fa fa-instagram"></i></a>-->
+  <br />
+    <small>©2017 por B. Tumbaco, N. Colcha, A. Vintimilla y E. Sánchez</small>
+  </footer>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="/js/bootstrap.min.js"></script>
+
+  <!--Propio del Menu lateral-->
+    <script src="/js/classie.js"></script>
+    <script src="/js/gnmenu.js"></script>
+    <script>
+        new gnMenu( document.getElementById( 'gn-menu' ) );
+    </script>
+
+  </body>
+</html>

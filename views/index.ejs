@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>Control Ayudantías-Índice</title>
+
+    <!-- Bootstrap -->
+    <link href="/css/index.css" rel="stylesheet">
+    <link href="/css/estilo.general1.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet"/>
+
+    <link href="https://fonts.googleapis.com/css?family=Shrikhand" rel="stylesheet">
+
+    <!-- Ícono en la pestaña de la página -->
+    <link rel="shortcut icon" href="img/icono.png">
+
+    <% include include/librerias %>
+
+  </head>
+
+  <body ng-app="myApp" ng-controller="horarioCtrl" ng-init="init()">
+
+    <%- include include/encabezado %>
+    <!--Encabezado -->
+    
+    <div class="bienvenida">
+      <h2>Bienvenidos</h2>
+    </div>
+
+    <!-- Carousel
+    ================================================== -->
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active">
+          <div class="fill" id="item1"></div>
+        </li>
+        <li data-target="#myCarousel" data-slide-to="1">
+          <div class="fill" id="item2"></div>
+        </li>
+        <li data-target="#myCarousel" data-slide-to="2">
+          <div class="fill" id="item2"></div>
+        </li>
+      </ol>
+      <div class="carousel-inner" role="listbox">
+        <div class="item active">
+          <img class="fill first-slide" src="http://parroquiadeflorencia.com/wp-content/uploads/2014/11/horario.png" alt="First slide">
+          <div class="container">
+            <h2 class="descripcion">Arma tu horario</h2>
+          </div>
+        </div>
+        <div class="item">
+          <img class="fill second-slide" src="http://www.admision.espol.edu.ec/sites/admision.espol.edu.ec/files/slides/banner-2.png" alt="Second slide">
+          <div class="container">
+            <h2 class="fill descripcion">Interacción: ayudantes, ayudados y docentes</h2>
+            
+          </div>
+        </div>
+        <div class="item">
+          <img class="fill third-slide" src="http://cdn.ttgtmedia.com/visuals/ComputerWeekly/Hero%20Images/storage-6-fotolia.jpg" alt="Third slide">
+          <div class="container">
+            <h2 class="descripcion">Archiva tus clases</h2>
+            <div class="carousel-caption">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div><!-- /.carousel -->
+    <!-- FIN DE CAROUSEL================== -->
+
+    <footer>
+      <a href="https://www.facebook.com/bryandariot"><i class="fa fa-facebook"></i></a>
+      <a href="https://twitter.com/elisanvil"><i class="fa fa-twitter"></i></a>
+      <a href="https://www.linkedin.com/in/elisavil"><i class="fa fa-linkedin"></i></a>
+      <!--<a href="#"><i class="fa fa-instagram"></i></a>-->
+		<br />
+      <small>©2017 por B. Tumbaco, N. Colcha, A. Vintimilla y E. Sánchez</small>
+    </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+  </body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>Control Ayudantías-Foro Estudiantes</title>
+
+    <% include ../include/librerias %>
+    
+    <!-- Bootstrap -->
+    <link href="/css/foro_estudiantes.css" rel="stylesheet">
+    <link href="/css/estilos-menu-lateral.css" rel="stylesheet">
+    <link href="/css/estilo.general1.css" rel="stylesheet">
+
+    <!-- Ícono en la pestaña de la página -->
+    <link rel="shortcut icon" href="/img/icono.png">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet"/>
+
+    <link rel="shortcut icon" href="/../favicon.ico">
+    <!--<link rel="stylesheet" type="text/css" href="css/normalize.css">-->
+    <!--<link rel="stylesheet" type="text/css" href="css/demo.css">-->
+    <link rel="stylesheet" type="text/css" href="/css/component.css">
+    <script src="/js/modernizr.custom.js"></script>
+
+
+  </head>
+  <body id="conectadosCtrl" ng-app="myApp" ng-controller="conectadosCtrl" ng-init="init()">
+  
+    <% include ../include/encabezado %>
+    <!--Encabezado -->
+
+    <% include ../include/menu-vertical %>
+    <!-- Menu propio del ayudante-->
+
+    <div  id="body1" class="">
+      <h2 class="titulo-pagina">Usuarios conectados</h2>
+      <hr class="featurette-divider">
+
+      <div class="col-md-10" style="margin-top:6%;">
+        <div class="" style="width: 100%">
+          <div id="centro" class="row">
+            <div class="col-md-12">
+              <span id="tipoUsuario" class="hidden hide"><%= tipoUsuario %></span>
+
+              <!-- Lista de foros  ng-bind-html-unsafe="foro.text"-->
+              <div ng-if="tipoUsuario=='moderador'" class="col-md-12">
+                <div class="list-group">
+                  <div class="list-group-item list-group-item-action" ng-repeat="user in usuariosLogueados">
+                    <span ng-if="user.usuario.nombres && user.usuario.apellidos">
+                      <span ng-if="user.logueado"><i class="fa fa-circle" style="color:green"></i></span>
+                      <span ng-if="!user.logueado"><i class="fa fa-circle" style="color:silver"></i></span>
+                      &nbsp;&nbsp;&nbsp;
+                      {{user.usuario.nombres}} {{user.usuario.apellidos}}
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>  
+      </div>
+
+      <br />
+      <br />
+      <br />    
+      <br />
+    </div>
+
+    <footer>
+      <a href="https://www.facebook.com/bryandariot"><i class="fa fa-facebook"></i></a>
+      <a href="https://twitter.com/elisanvil"><i class="fa fa-twitter"></i></a>
+      <a href="https://www.linkedin.com/in/elisavil"><i class="fa fa-linkedin"></i></a>
+      <!--<a href="#"><i class="fa fa-instagram"></i></a>-->
+    <br />
+      <small>©2017 por B. Tumbaco, N. Colcha, A. Vintimilla y E. Sánchez</small>
+    </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>  
+
+    <!--Propio del Menu lateral-->
+    <script src="/js/classie.js"></script>
+    <script src="/js/gnmenu.js"></script>
+    <script>
+        new gnMenu( document.getElementById( 'gn-menu' ) );
+    </script>
+    <script>
+      socket.on('newlog', function (data) {
+        angular.element(document.getElementById("conectadosCtrl")).scope().init()
+      });
+    </script>
+    
+  </body>
+
+    
+
+</html>

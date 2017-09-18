@@ -1,0 +1,39 @@
+[
+	{
+		"Fecha":"Sábado 16 Julio",
+		"Eventos":[
+			{"Imagen":"/img/edcom-photoshop-r.PNG",
+			"Descripcion":"Photoshop - EDCOM"}
+		]
+	},
+	{
+		"Fecha":"Lunes 17 Julio",
+		"Eventos":[
+			{"Imagen":"/img/ceemp-taller-r.PNG",
+			"Descripcion":"Inbound Marketing - CEEMP"}
+		]
+	},
+	{
+		"Fecha":"Martes 18 Julio",
+		"Eventos":[
+			{"Imagen":"/img/ubep-musica-r.PNG",
+			"Descripcion":"Dimensión oculta de la música - UBEP"},
+			{"Imagen":"/img/fcv-bida-r.PNG",
+			"Descripcion":"Expo BIDA - FCV"}
+		]
+	},
+	{
+		"Fecha":"Sábado 23 Julio",
+		"Eventos":[
+			{"Imagen":"/img/edcom-cableado-r.PNG",
+			"Descripcion":"Cableado Estructurado - EDCOM"}
+		]
+	},
+	{
+		"Fecha":"Jueves 28 Julio",
+		"Eventos":[
+			{"Imagen":"/img/fcsh-taller-escritura-r.PNG",
+			"Descripcion":"Escritura Científica - FCSH"}
+		]
+	}
+]

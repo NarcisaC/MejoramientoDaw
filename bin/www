@@ -1,0 +1,210 @@
+#!/usr/bin/env node
+
+/**
+ * Module dependencies.
+ */
+
+var app = require('../app');
+var debug = require('debug')('node-crud:server');
+var http = require('http');
+var querystring = require('querystring');
+
+/**
+ * Get port from environment and store in Express.
+ */
+
+var port = normalizePort(process.env.PORT || '3000');
+app.set('port', port);
+
+/**
+ * Create HTTP server.
+ */
+
+var server = http.createServer(app);
+ResetAll();
+
+var io = require('socket.io')(server);
+
+/**
+ * Listen on provided port, on all network interfaces.
+ */
+
+server.listen(port);
+server.on('error', onError);
+server.on('listening', onListening);
+
+
+
+io.on('connection', function (socket) {
+  socket.emit('news', { message: 'Escuchando eventos' });
+  // Escucha logins
+  socket.on('LoginEvent', function (dataUser) {
+    LogUser(dataUser); // PUT Request function
+    // Emit to ALL sockets
+    io.sockets.emit('newlog', { message: "Update users" });
+  });
+  // Escucha logouts
+  socket.on('LogoutEvent', function (dataUser2) {
+    console.log(dataUser2)
+    UnlogUser(dataUser2); // PUT Request function
+    // Emit to ALL sockets
+    io.sockets.emit('newlog', { message: "Update users" });
+  });  
+});
+
+
+/**
+ * Normalize a port into a number, string, or false.
+ */
+
+function normalizePort(val) {
+  var port = parseInt(val, 10);
+
+  if (isNaN(port)) {
+    // named pipe
+    return val;
+  }
+
+  if (port >= 0) {
+    // port number
+    return port;
+  }
+
+  return false;
+}
+
+/**
+ * Event listener for HTTP server "error" event.
+ */
+
+function onError(error) {
+  if (error.syscall !== 'listen') {
+    throw error;
+  }
+
+  var bind = typeof port === 'string'
+    ? 'Pipe ' + port
+    : 'Port ' + port;
+
+  // handle specific listen errors with friendly messages
+  switch (error.code) {
+    case 'EACCES':
+      console.error(bind + ' requires elevated privileges');
+      process.exit(1);
+      break;
+    case 'EADDRINUSE':
+      console.error(bind + ' is already in use');
+      process.exit(1);
+      break;
+    default:
+      throw error;
+  }
+}
+
+/**
+ * Event listener for HTTP server "listening" event.
+ */
+
+function onListening() {
+  var addr = server.address();
+  var bind = typeof addr === 'string'
+    ? 'pipe ' + addr
+    : 'port ' + addr.port;
+  debug('Listening on ' + bind);
+}
+
+
+
+
+
+function LogUser(dataJson) {
+  // Build the post string from an object
+  var post_data = querystring.stringify({
+    'logueado' : true,
+    'usuario' : String(dataJson._id)
+  });
+  // An object of options to indicate where to post to
+  var post_options = {
+      host: 'localhost',
+      port: '3000',
+      path: '/api/manejoSesiones/' + dataJson._id,
+      method: 'PUT',
+      headers:{
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'Content-Length': Buffer.byteLength(post_data)
+      }
+  };
+  // Set up the request
+  var post_req = http.request(post_options, function(res) {
+    res.setEncoding('utf8');
+    res.on('data', function (chunk) {
+      console.log('Response: ' + chunk);
+    });
+  });
+  // post the data
+  post_req.write(post_data);
+  post_req.end();
+}
+
+
+function UnlogUser(dataJson) {
+  // Build the post string from an object
+  var post_data = querystring.stringify({
+    'logueado' : false,
+    'usuario' : String(dataJson._id)
+  });
+  // An object of options to indicate where to post to
+  var post_options = {
+      host: 'localhost',
+      port: '3000',
+      path: '/api/manejoSesiones/' + dataJson._id,
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'Content-Length': Buffer.byteLength(post_data)
+      }
+  };
+  // Set up the request
+  var post_req = http.request(post_options, function(res) {
+    res.setEncoding('utf8');
+    res.on('data', function (chunk) {
+      console.log('Response: ' + chunk);
+    });
+  });
+  // post the data
+  post_req.write(post_data);
+  post_req.end();
+
+}
+
+
+
+function ResetAll() {
+  // Build the post string from an object
+  var post_data = querystring.stringify({
+    'logueado' : '1',
+    'usuario' : '1'
+  });
+  // An object of options to indicate where to post to
+  var post_options = {
+      host: 'localhost',
+      port: '3000',
+      path: '/api/manejoSesiones/limpiar/all',
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'Content-Length': Buffer.byteLength(post_data)
+      }
+  };
+  // Set up the request
+  var post_req = http.request(post_options, function(res) {
+    res.setEncoding('utf8');
+    res.on('data', function (chunk) {
+      console.log('Reset connections');
+    });
+  });
+  // post the data
+  post_req.write(post_data);
+  post_req.end();
+
+}

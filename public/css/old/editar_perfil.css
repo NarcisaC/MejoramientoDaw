@@ -1,0 +1,16 @@
+*{
+	font-family: 'Narkisim';
+}
+
+.page-header{
+	text-align: center;
+	color: rgba(0,0,0,1);
+	position: relative;
+	top: 3px;
+	font-weight: bold;
+	font-size: 2em;
+}
+
+input.btn-primary {
+	background-color: rgba(0,28,67,1);
+}

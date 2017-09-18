@@ -1,0 +1,174 @@
+.content-block{
+	width: 80%;
+	max-width: 1024px;
+	margin: auto;
+}
+
+
+.titulo-pagina{
+	font-family: 'Narkisim';
+	text-align: center;
+	position: relative;
+	top: 23px;
+	font-size: 2em;
+	font-weight: bold;
+}
+
+.featurette-divider{
+	margin: 0% 5% 0% 5%;
+	position: relative;
+	top: 22.5px;
+}
+
+/** AGENDA */
+
+.hidden-img, .right-img{
+	width: 100%;
+	height: 150px;
+	
+}
+
+.content{
+	padding-top: 15px;
+}
+.postTitle,.postImages{
+	padding: 0!important;
+	overflow: hidden;
+	
+}
+
+
+/*resuelto el problema del espacio superior*/
+.postDate{
+	display: block;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+}
+
+.postDate p{
+	display: block;
+	position: absolute;
+	top: 50%;
+	width: 100%;
+	font-size: 1em;
+	color: #ffffff;
+	text-align: center;
+	font-family: 'Narkisim';
+}
+
+
+.caption span{
+	background: url('https://objects.chopard.com/diary/wp-content/themes/choparddiary/images/caption-bg.png') repeat left top;
+	display: table;
+	position: absolute;
+	text-align: center;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 150px;
+	z-index: 999;
+	font-family: 'Narkisim';
+		
+}
+
+.img-wrapper{
+	overflow: hidden;
+	position: relative;
+	left: 0;
+	
+}
+/*
+.img-wrapper .caption{
+	width: 100%!important;
+		
+}*/
+
+.caption a{
+	color: #fff;
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	text-shadow: 1px 1px #000;
+	vertical-align: middle;
+	z-index: 9999;
+	
+	line-height: 26px;
+	
+}
+
+.caption{
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	display: none;
+	opacity: .1;
+	z-index: 2;
+
+	-webkit-transition: all 500ms ease;
+	-o-transition: all 500ms ease;
+	transition: opacity 500ms ease;
+}
+
+/*texto que aparece sobre las imagenes*/
+.caption a span em{
+	padding-left: 20px;
+	padding-right: 20px;
+	vertical-align: middle;
+	display: table-cell;
+	font-style: normal;    /*para que em coja el tipo de letra*/
+
+}
+
+.postImages .img-wrapper:hover .caption{
+	top: 0;
+	display: block!important;
+}
+
+.caption:hover {
+	opacity: 1;
+}
+
+.caption a span em:hover{
+	color: #fff;
+}
+/*
+.click {
+	position: absolute;
+	right: 0;
+	z-index: 3;
+
+}*/
+
+/*click de las esquinas*/
+.click a{
+	color: white;
+	position: absolute;
+	top: 0;
+	right: 0;
+	z-index: 3;
+	padding: 2% 3%;
+	
+	
+	-webkit-transition: all 500ms ease;
+	-o-transition: all 500ms ease;
+	transition: opacity 500ms ease;
+	
+}
+
+.click a:hover{
+	background-color: white;
+	color: black;
+	font-weight: bold;
+}
+
+.click .glyphicon {
+	width: 14px;
+	
+}

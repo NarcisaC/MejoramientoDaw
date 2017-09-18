@@ -1,0 +1,31 @@
+*{
+	font-family: 'Narkisim';
+}
+
+.titulo-pagina{
+	font-family: 'Narkisim';
+	text-align: center;
+	position: relative;
+	top: 23px;
+	font-size: 2em;
+	font-weight: bold;
+}
+
+div[class="row featurette"]{
+	margin: 0% 5% 0% 5%;
+	position: relative;
+	top: 50px;
+}
+
+.featurette-divider{
+	margin: 0% 5% 0% 5%;
+	position: relative;
+	top: 22.5px;
+}
+
+.featurette-heading {
+	font-family: 'Narkisim';
+	font-size: 1.5em;
+
+}
+

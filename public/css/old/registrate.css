@@ -1,0 +1,79 @@
+}
+
+.titulo-pagina{
+	direction: inline;
+	max-width: 50%;
+	position: relative;
+	left: 30%;
+	top: -75px;
+	font-weight: bold;
+}
+
+.table-responsive{
+	width: 50%;
+	position: relative;
+	left: 30%;
+	border: 3px groove rgba(129,190,247,0.95);
+}
+
+div[class="row featurette"]{
+	/*border: 2px solid yellow;*/
+	width: 60%;
+	padding-bottom: -10%;
+	position: relative;
+	left: 30%;
+}
+
+.featurette-divider{
+	width: 65%;
+	position: relative;
+	left: 8.5%;
+	top: -60px;
+}
+
+#advice{
+	text-align: center;
+}
+
+
+/*CREA UNA CUENTA*/
+
+.form-signin {
+  border: 1px double rgba(0,0,0,1);
+  border-radius: 3%;
+  max-width: 530px;
+  padding: 15px 25px 10px;
+  margin: 0 auto;
+
+}
+.form-signin .form-signin-heading,
+.form-signin .checkbox {
+  margin-bottom: 10px;
+}
+.form-signin .checkbox {
+  font-weight: normal;
+}
+.form-signin .form-control {
+  position: relative;
+  height: auto;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 10px;
+  font-size: 16px;
+}
+.form-signin .form-control:focus {
+  z-index: 2;
+}
+.form-signin input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+
